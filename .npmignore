@@ -1,0 +1,6 @@
+!dist/
+!lib/
+.idea/
+test/
+.gitmodules
+node_modules/

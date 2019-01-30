@@ -1,0 +1,62 @@
+{
+  "name": "s3-ddf-resource-reader",
+  "version": "1.0.0",
+  "description": "S3 based DDF resource reader for Vizabi DDFcsv reader",
+  "author": "Vyacheslav Chub<vyacheslav.chub@valor-software.com>",
+  "license": "GPL-3.0",
+  "main": "lib/index.js",
+  "scripts": {
+    "tslint:src": "./node_modules/.bin/tslint -c ./tslint.json 'src/**/*.ts'",
+    "tslint": "npm run tslint:src && npm run tslint:tests",
+    "tsc": "tsc --project tsconfig.json",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
+    "github-release": "conventional-github-releaser -p angular",
+    "build": "npm run build:node",
+    "build:node": "npm run tsc",
+    "preversion": "npm run build",
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "postversion": "git push origin master && git push --tags && npm run github-release",
+    "prepublish": "npm run build",
+    "deploy": "node deploy.js"
+  },
+  "dependencies": {
+    "aws-sdk": "2.308.0"
+  },
+  "peerDependencies": {
+    "vizabi-ddfcsv-reader": ">=3.0.0"
+  },
+  "devDependencies": {
+    "@babel/code-frame": "7.0.0",
+    "@types/chai": "4.1.4",
+    "@types/core-js": "2.5.0",
+    "@types/lodash": "4.14.116",
+    "@types/mocha": "5.2.5",
+    "@types/node": "10.12.19",
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.5",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-stage-0": "6.24.1",
+    "chai": "4.1.2",
+    "codecov": "3.0.4",
+    "compare-version": "0.1.2",
+    "conventional-changelog": "1.1.3",
+    "conventional-changelog-cli": "1.3.1",
+    "conventional-github-releaser": "1.1.9",
+    "lodash.keys": "4.2.0",
+    "mocha": "5.2.0",
+    "rimraf": "2.6.2",
+    "shelljs": "0.8.2",
+    "sinon": "6.1.4",
+    "source-map-loader": "0.2.3",
+    "source-map-support": "0.5.6",
+    "ts-loader": "4.3.0",
+    "ts-node": "7.0.0",
+    "tslib": "1.9.3",
+    "tslint": "5.11.0",
+    "tslint-no-unused-expression-chai": "0.1.3",
+    "typescript": "3.2.2",
+    "vizabi-ddfcsv-reader": "3.0.0"
+  }
+}
