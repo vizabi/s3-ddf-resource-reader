@@ -1,7 +1,7 @@
 {
   "name": "s3-ddf-resource-reader",
   "version": "1.0.0",
-  "description": "S3 based DDF resource reader for Vizabi DDFcsv reader",
+  "description": "AWS S3 based DDF resource reader for Vizabi DDFcsv reader",
   "author": "Vyacheslav Chub<vyacheslav.chub@valor-software.com>",
   "license": "GPL-3.0",
   "main": "lib/index.js",
